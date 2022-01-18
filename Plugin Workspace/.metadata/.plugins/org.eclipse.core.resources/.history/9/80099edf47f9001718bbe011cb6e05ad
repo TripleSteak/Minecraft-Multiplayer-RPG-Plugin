@@ -1,0 +1,126 @@
+package me.simon76800.mmorpg.entity;
+
+import java.util.HashMap;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Slime;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+public abstract class Mob {
+	private static final HashMap<LivingEntity, Mob> MOB_LIST = new HashMap<LivingEntity, Mob>();
+
+	private static final char HEALTH_BAR_CHAR = (char) 0x258D;
+	private static final ChatColor NAME_COLOUR = ChatColor.LIGHT_PURPLE;
+
+	protected static final int REGULAR_MOB_HEALTH_BAR_LENGTH = 12;
+	protected static final int BOSS_MOB_HEALTH_BAR_LENGTH = 24;
+
+	protected static final ChatColor HOSTILE_HEALTH_BAR = ChatColor.DARK_RED;
+	protected static final ChatColor HOSTILE_HEALTH_VALUE = ChatColor.RED;
+
+	private LivingEntity entity;
+	@SuppressWarnings("unused")
+	private String name;
+	private boolean isBoss;
+
+	private ArmorStand nameTag;
+	private ArmorStand healthBar;
+	private Slime nameTagHolder;
+	private Slime healthBarHolder;
+
+	private ChatColor healthBarColour;
+	private ChatColor healthValueColour;
+
+	private int currentHealth = 10;
+	private int maxHealth = 10;
+
+	public Mob(String name, Location loc, ChatColor healthBarColour, ChatColor healthValueColour, boolean isBoss) {
+		entity = (LivingEntity) loc.getWorld().spawnEntity(loc, EntityType.ZOMBIE);
+		MOB_LIST.put(entity, this);
+
+		this.name = name;
+		this.isBoss = isBoss;
+		this.healthBarColour = healthBarColour;
+		this.healthValueColour = healthValueColour;
+
+		/*
+		 * Creation of health bar
+		 */
+		healthBar = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
+		healthBar.setVisible(false);
+		healthBar.setCustomNameVisible(true);
+
+		healthBarHolder = (Slime) loc.getWorld().spawnEntity(loc, EntityType.SLIME);
+		healthBarHolder.setSize(-4);
+		healthBarHolder.setInvulnerable(true);
+		healthBarHolder.setAI(false);
+		healthBarHolder.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 200000000, 1, true));
+
+		healthBarHolder.addPassenger(healthBar);
+		entity.addPassenger(healthBarHolder);
+		updateHealth();
+
+		/*
+		 * Creation of name
+		 */
+		nameTag = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
+		nameTag.setGravity(false);
+		nameTag.setVisible(false);
+		nameTag.setCustomName("" + (isBoss ? ChatColor.BOLD : "") + NAME_COLOUR + name);
+		nameTag.setCustomNameVisible(true);
+
+		nameTagHolder = (Slime) loc.getWorld().spawnEntity(loc, EntityType.SLIME);
+		nameTagHolder.setSize(-3);
+		nameTagHolder.setInvulnerable(true);
+		nameTagHolder.setAI(false);
+		nameTagHolder.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 200000000, 1, true));
+
+		nameTagHolder.addPassenger(nameTag);
+		entity.addPassenger(nameTagHolder);
+	}
+
+	public double getX() {
+		return entity.getLocation().getX();
+	}
+
+	public double getY() {
+		return entity.getLocation().getY();
+	}
+
+	public double getZ() {
+		return entity.getLocation().getZ();
+	}
+
+	private void updateHealth() {
+		String healthBarStr = "" + ChatColor.GRAY + ChatColor.BOLD + "[" + ChatColor.RESET + healthBarColour + "";
+		int barsLeft = (currentHealth > maxHealth
+				? (isBoss ? BOSS_MOB_HEALTH_BAR_LENGTH : REGULAR_MOB_HEALTH_BAR_LENGTH)
+				: (int) Math.round(((double) currentHealth)
+						* ((double) (isBoss ? BOSS_MOB_HEALTH_BAR_LENGTH : REGULAR_MOB_HEALTH_BAR_LENGTH))
+						/ ((double) maxHealth)));
+		for (int i = 0; i < barsLeft; i++)
+			healthBarStr += Character.toString(HEALTH_BAR_CHAR);
+		healthBarStr += ChatColor.DARK_GRAY;
+		for (int i = barsLeft; i < (isBoss ? BOSS_MOB_HEALTH_BAR_LENGTH : REGULAR_MOB_HEALTH_BAR_LENGTH); i++)
+			healthBarStr += Character.toString(HEALTH_BAR_CHAR);
+		healthBarStr += "" + ChatColor.GRAY + ChatColor.BOLD + "] " + healthValueColour + ChatColor.BOLD
+				+ Integer.toString(currentHealth) + ChatColor.GRAY + "/" + healthValueColour + ChatColor.BOLD
+				+ Integer.toString(maxHealth);
+		healthBar.setCustomName(healthBarStr);
+	}
+
+	public static Mob getMob(LivingEntity e) {
+		if (MOB_LIST.containsKey(e))
+			return MOB_LIST.get(e);
+		else {
+			System.out.println("Unauthorized mob in " + e.getWorld() + " at (" + e.getLocation().getX() + ", "
+					+ e.getLocation().getY() + ", " + e.getLocation().getZ() + ")");
+			return null;
+		}
+	}
+}

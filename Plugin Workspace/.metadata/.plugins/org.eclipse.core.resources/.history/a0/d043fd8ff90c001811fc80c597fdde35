@@ -1,0 +1,44 @@
+package me.simon76800.library.entity.player;
+
+import org.bukkit.entity.Player;
+
+public class PlayerCharacter {
+	private Player player;
+	private Races race;
+	private Classes classs;
+	private String name;
+	
+	private int level;
+
+	public PlayerCharacter(Player player, Races race, Classes classs, String name, int level) {
+		this.player = player;
+		this.race = race;
+		this.classs = classs;
+		this.name = name;
+		this.level = level;
+	}
+	
+	public PlayerCharacter loadBasic() {
+		
+	}
+	
+	public Player getPlayer() {
+		
+	}
+
+	public Races getRace() {
+		return race;
+	}
+
+	public Classes getCharacterClass() {
+		return classs;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+}

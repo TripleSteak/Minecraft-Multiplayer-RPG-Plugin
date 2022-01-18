@@ -1,0 +1,56 @@
+package me.simon76800.lobby.util;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
+
+import me.simon76800.library.entity.player.Races;
+import net.minecraft.server.v1_12_R1.NBTTagCompound;
+
+public final class CreateCharacter {
+	public static final String CHOOSE_RACE_NAME = ChatColor.WHITE + " ";
+
+	public static final Inventory CHOOSE_RACE = Bukkit.createInventory(null, 18, CHOOSE_RACE_NAME);
+
+	private static final String LUMINOUS_COLOUR = "" + ChatColor.AQUA + ChatColor.BOLD;
+	private static final String OBSCURE_COLOUR = "" + ChatColor.RED + ChatColor.BOLD;
+	private static final String FACTION_COLOUR = "" + ChatColor.DARK_GRAY;
+
+	public static final String HUMAN_RACE = LUMINOUS_COLOUR + "Human";
+
+	public static void init() {
+		CHOOSE_RACE.setItem(3, getRace(Races.HUMAN, ""));
+	}
+
+	/*
+	 * Returns menu item for specified race
+	 */
+	@SuppressWarnings("deprecation")
+	private static ItemStack getRace(Races race, String skullOwner) {
+		ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+		SkullMeta meta = (SkullMeta) is.getItemMeta();
+		if (!skullOwner.equals(""))
+			meta.setOwner(skullOwner);
+		meta.setDisplayName(
+				FACTION_COLOUR + (race.isLuminous ? "Luminous " + LUMINOUS_COLOUR : "Obscure " + OBSCURE_COLOUR)
+						+ race.getDisplayName().toUpperCase());
+		meta.setUnbreakable(true);
+		is.setItemMeta(meta);
+		
+		net.minecraft.server.v1_12_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(is);
+		NBTTagCompound tag = null;
+		if(!nmsStack.hasTag()) {
+			tag = new NBTTagCompound();
+			nmsStack.setTag(tag);
+		} tag = nmsStack.getTag();
+		if(!tag.hasKey("HideFlags")) tag.setInt("HideFlags", 63);
+		nmsStack.setTag(tag);
+		is = CraftItemStack.asCraftMirror(nmsStack);
+		
+		return is;
+	}
+}

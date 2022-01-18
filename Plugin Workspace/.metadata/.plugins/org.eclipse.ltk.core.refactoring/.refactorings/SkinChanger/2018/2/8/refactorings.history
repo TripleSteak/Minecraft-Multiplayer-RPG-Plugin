@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;SkinChanger&apos;&#x0D;&#x0A;- Original project: &apos;SkinChanger&apos;&#x0D;&#x0A;- Original element: &apos;SkinChanger/src/org&apos;&#x0D;&#x0A;- Delete subpackages" description="Delete element" element1="/src&lt;org.mineskin.data" element10="/src&lt;org.jsoup" element11="/src&lt;org" element2="/src&lt;org.mineskin" element3="/src&lt;org.jsoup.select" element4="/src&lt;org.jsoup.safety" element5="/src&lt;org.jsoup.parser" element6="/src&lt;org.jsoup.nodes" element7="/src&lt;org.jsoup.internal" element8="/src&lt;org.jsoup.helper" element9="/src&lt;org.jsoup.examples" elements="11" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1519048675466" subPackages="true" version="1.0"/>
+</session>

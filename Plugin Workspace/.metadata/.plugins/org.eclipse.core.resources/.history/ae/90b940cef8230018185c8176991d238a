@@ -1,0 +1,7 @@
+package org;
+
+public class ApachePOIPlugin extends JavaPlugin {
+	public static void onEnable() {
+		
+	}
+}

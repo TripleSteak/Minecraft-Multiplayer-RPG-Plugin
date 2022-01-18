@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;me.simon76800.game.util.DamageHandler&apos; to &apos;AttackHandler&apos;&#x0D;&#x0A;- Original project: &apos;MMORPG Game Plugin&apos;&#x0D;&#x0A;- Original element: &apos;me.simon76800.game.util.DamageHandler&apos;&#x0D;&#x0A;- Renamed element: &apos;me.simon76800.game.util.AttackHandler&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DamageHandler&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;me.simon76800.game.util{DamageHandler.java[DamageHandler" matchStrategy="1" name="AttackHandler" qualified="false" references="true" similarDeclarations="false" stamp="1543166306343" textual="false" version="1.0"/>
+</session>

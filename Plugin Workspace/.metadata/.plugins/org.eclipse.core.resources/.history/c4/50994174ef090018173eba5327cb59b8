@@ -1,0 +1,7 @@
+package me.simon76800.lobby.event;
+
+import org.bukkit.event.Listener;
+
+public class PlayerJoinEventHandler implements Listener {
+	
+}

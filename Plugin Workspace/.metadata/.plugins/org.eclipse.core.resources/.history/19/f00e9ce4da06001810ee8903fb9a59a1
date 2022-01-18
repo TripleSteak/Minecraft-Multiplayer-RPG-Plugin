@@ -1,0 +1,10 @@
+package me.simon76800.mmorpg;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Main extends JavaPlugin {
+	@Override
+	public void onEnable() {
+		
+	}
+}

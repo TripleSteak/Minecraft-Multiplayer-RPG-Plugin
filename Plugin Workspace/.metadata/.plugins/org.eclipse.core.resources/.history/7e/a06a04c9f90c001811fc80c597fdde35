@@ -1,0 +1,49 @@
+package me.simon76800.library.entity.player;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.bukkit.entity.Player;
+
+import me.simon76800.library.util.PlayerDataHandler;
+
+public class PlayerCharacter {
+	private Player player;
+	private Races race;
+	private Classes classs;
+	private String name;
+	
+	private int level;
+
+	public PlayerCharacter(Player player, Races race, Classes classs, String name, int level) {
+		this.player = player;
+		this.race = race;
+		this.classs = classs;
+		this.name = name;
+		this.level = level;
+	}
+	
+	public PlayerCharacter loadBasic(Player player, String name) {
+		String string = FileUtils.readFileToString(new File(PlayerDataHandler.getCharactersDirectory(p)))
+	}
+	
+	public Player getPlayer() {
+		
+	}
+
+	public Races getRace() {
+		return race;
+	}
+
+	public Classes getCharacterClass() {
+		return classs;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+}

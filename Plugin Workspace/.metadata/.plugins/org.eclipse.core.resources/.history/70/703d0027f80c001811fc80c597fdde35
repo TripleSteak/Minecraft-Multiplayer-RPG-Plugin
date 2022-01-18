@@ -1,0 +1,26 @@
+package me.simon76800.library.entity.player;
+
+public class PlayerCharacter {
+	private Races race;
+	private Classes classs;
+	private String name;
+	
+	private int level;
+
+	public PlayerCharacter(Races race, Classes classs, String name, int level) {
+		this.race = race;
+		this.classs = classs;
+	}
+
+	public Races getRace() {
+		return race;
+	}
+
+	public Classes getCharacterClass() {
+		return classs;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+}

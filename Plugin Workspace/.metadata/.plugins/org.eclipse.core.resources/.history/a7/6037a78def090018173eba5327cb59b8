@@ -1,0 +1,19 @@
+package me.simon76800.lobby;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+import me.simon76800.lobby.event.PlayerJoinEventHandler;
+
+public class Main extends JavaPlugin {
+	
+	
+	@Override
+	public void onEnable() {
+		this.getServer().getPluginManager().registerEvents(new PlayerJoinEventHandler(), this);
+	}
+
+	@Override
+	public void onDisable() {
+
+	}
+}

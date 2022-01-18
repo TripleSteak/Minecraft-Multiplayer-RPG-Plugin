@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;me.simon76800.library.util.CollisionUtils&apos; to &apos;CollisionHandler&apos;&#x0D;&#x0A;- Original project: &apos;MMORPG Library&apos;&#x0D;&#x0A;- Original element: &apos;me.simon76800.library.util.CollisionUtils&apos;&#x0D;&#x0A;- Renamed element: &apos;me.simon76800.library.util.CollisionHandler&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CollisionUtils&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;me.simon76800.library.util{CollisionUtils.java[CollisionUtils" matchStrategy="1" name="CollisionHandler" qualified="false" references="true" similarDeclarations="false" stamp="1543099218828" textual="false" version="1.0"/>
+</session>

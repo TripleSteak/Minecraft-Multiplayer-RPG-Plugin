@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="Construct"/>
+		<item key="casesensitive" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="wrap" value="true"/>
+		<item key="wholeword" value="false"/>
+		<list key="findhistory">
+			<item value="construct"/>
+			<item value="Damageable"/>
+			<item value="((Damageable) is)"/>
+			<item value="damageable"/>
+			<item value="Damageasble"/>
+			<item value="WOOD"/>
+			<item value="esdorfia"/>
+			<item value="deltaZ"/>
+			<item value="deltaY"/>
+			<item value="deltaX"/>
+			<item value="mob."/>
+			<item value="loadBasic"/>
+			<item value="&quot; &quot;"/>
+			<item value="inventoryFile"/>
+			<item value="INVENTORY_DATA_FILE"/>
+		</list>
+		<list key="replacehistory">
+			<item value="((Damageable) meta)"/>
+			<item value=""/>
+			<item value="mob.zVelocity"/>
+			<item value="mob.yVelocity"/>
+			<item value="mob.xVelocity"/>
+			<item value="&quot;^&quot;"/>
+			<item value="equipmentFile"/>
+			<item value="EQUIPMENT_DATA_FILE"/>
+			<item value="BASIC_DATA_FILE"/>
+			<item value="originXInt"/>
+			<item value="originSlope"/>
+			<item value="mob.hitboxX[i]"/>
+			<item value="mobName"/>
+			<item value="AGILITY"/>
+			<item value="STAMINA"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_WIDTH" value="681"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_HEIGHT" value="219"/>
+		<item key="DIALOG_X_ORIGIN" value="1167"/>
+		<item key="DIALOG_Y_ORIGIN" value="158"/>
+	</section>
+</section>

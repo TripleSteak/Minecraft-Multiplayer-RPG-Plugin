@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Class-Path: ApachePOI/poi-3.17.jar ApachePOI/poi-examples-3.17.jar ApachePOI/poi-excelant-3.17.jar ApachePOI/poi-ooxml-3.17.jar ApachePOI/poi-ooxml-schemas-3.17.jar ApachePOI/poi-scratchpad-3.17.jar

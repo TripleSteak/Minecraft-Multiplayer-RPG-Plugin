@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;MMORPG Plugin&apos; to &apos;MMORPG Lobby Plugin&apos;&#x0D;&#x0A;- Original element: &apos;MMORPG Plugin&apos;&#x0D;&#x0A;- Renamed element: &apos;MMORPG Plugin&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;MMORPG Plugin&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=MMORPG Plugin" name="MMORPG Lobby Plugin" references="true" stamp="1517777201485" version="1.0"/>
+</session>

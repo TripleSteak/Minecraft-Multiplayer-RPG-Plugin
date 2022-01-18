@@ -1,0 +1,5 @@
+package me.simon76800.lobby.event;
+
+public class PJEventHandler {
+
+}
